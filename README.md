@@ -9,14 +9,19 @@ sudo apt-get install build-essential
 
 #### Install neovim
 ```bash
-# Download the file
-wget https://github.com/neovim/neovim/releases/download/v0.11.3/nvim-linux-x86_64.tar.gz
+# Download the file for amd linux
+wget  -O nvim.tar.gz https://github.com/neovim/neovim/releases/download/v0.11.4/nvim-linux-x86_64.tar.gz
+# Download the file for arm linux
+wget  -O nvim.tar.gz https://github.com/neovim/neovim/releases/download/v0.11.4/nvim-linux-arm64.tar.gz
+# Download the file for arm mac
+wget  -O nvim.tar.gz https://github.com/neovim/neovim/releases/download/v0.11.4/nvim-macos-arm64.tar.gz
+
 
 # Unzip it
-sudo tar -xvf nvim-linux-x86_64.tar.gz
+sudo tar -xvf nvim-linux-amd64.tar.gz
 
 # Rename the folder
-mv nvim-linux-x86_64 nvim
+mv nvim-linux-x8 nvim
 
 # Move to opt folder
 sudo mv nvim /opt/
@@ -30,23 +35,21 @@ export PATH=/opt/nvim/bin:$PATH
 
 #### Install node js
 ```bash
-# Download the binary
-wget https://nodejs.org/dist/v22.17.1/node-v22.17.1-linux-x64.tar.xz
+# Download and install nvm:
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 
-# Unzip the file
-sudo tar -xvf node-v22.17.1-linux-x64.tar.xz
+# in lieu of restarting the shell
+\. "$HOME/.nvm/nvm.sh"
 
-# Rename the file
-mv node-v22.17.1-linux-x64 node-v22
+# Download and install Node.js:
+nvm install 22
 
-# Move to opt
-sudo mv node-v22 /opt
+# Verify the Node.js version:
+node -v # Should print "v22.19.0".
 
-# Include the path in .bashrc
-vim .bashrc
+# Verify npm version:
+npm -v # Should print "10.9.3".
 
-# Paste at the end
-export PATH=/opt/node-v22/bin:$PATH
 ```
 
 #### Install golang
